@@ -1,0 +1,12 @@
+digraph {
+	node [shape=circle]
+	"31f82f9d-5b46-4939-9fcc-7ecff5c6a817" [label="*"]
+	"1104c4cf-4546-43c8-812e-fa4226b1d768" [label="+"]
+	"fa127fc5-a7d5-486c-8889-f5f5cc6cf5a8" [label=1]
+	"1104c4cf-4546-43c8-812e-fa4226b1d768" -> "fa127fc5-a7d5-486c-8889-f5f5cc6cf5a8" [arrowsize=0]
+	"bdd38613-1300-49d8-869f-3fd49fbba0ff" [label=2]
+	"1104c4cf-4546-43c8-812e-fa4226b1d768" -> "bdd38613-1300-49d8-869f-3fd49fbba0ff" [arrowsize=0]
+	"31f82f9d-5b46-4939-9fcc-7ecff5c6a817" -> "1104c4cf-4546-43c8-812e-fa4226b1d768" [arrowsize=0]
+	"b3d85648-c0e4-4746-9a1f-042710de0287" [label=3]
+	"31f82f9d-5b46-4939-9fcc-7ecff5c6a817" -> "b3d85648-c0e4-4746-9a1f-042710de0287" [arrowsize=0]
+}

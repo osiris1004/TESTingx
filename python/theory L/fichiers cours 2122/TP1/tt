@@ -1,0 +1,4 @@
+def t_NAME(t):
+    r'[a-zA-Z][a-zA-Z_0-9]*'
+    t.type = reversed.get(t.value, 'NAME')
+    return t
