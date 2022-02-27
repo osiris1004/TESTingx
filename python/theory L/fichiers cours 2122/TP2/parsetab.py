@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'leftPLUSMINUSleftTIMESDIVIDEDIVIDE LPAREN MINUS NUMBER PLUS RPAREN TIMESstart : expressionexpression : expression PLUS expressionexpression : expression TIMES expressionexpression : LPAREN expression RPARENexpression : NUMBER'
+_lr_signature = 'leftORleftANDnonassocLOWERHIGHEREQUALleftPLUSMINUSleftTIMESDIVIDEAND COLON DIVIDE EQUAL EQUALS FOR FUNCTION HIGHER IF LBRACE LOWER LPAREN MINUS NAME NUMBER OR PLUS PRINT RBRACE RPAREN TIMES WHILEstart : linstlinst : linst inst COLON\n            | inst COLONinst : FUNCTION NAME LPAREN RPAREN LBRACE linst RBRACE\n            | FUNCTION NAME LPAREN inst RPAREN LBRACE linst RBRACEinst : NAME LPAREN RPAREN COLONinst : NAME EQUAL expressioninst : PRINT LPAREN expression RPARENexpression : expression PLUS expression\n                  | expression MINUS expression\n                  | expression TIMES expression\n                  | expression OR expression\n                  | expression AND expression\n                  | expression EQUALS expression\n                  | expression LOWER expression\n                  | expression HIGHER expression\n                  | expression DIVIDE expressionexpression : LPAREN expression RPARENexpression : NUMBERexpression : NAMEinst : IF LPAREN  expression RPAREN  LBRACE linst RBRACEinst : WHILE LPAREN  expression RPAREN  LBRACE linst RBRACEinst : FOR LPAREN inst COLON expression COLON inst RPAREN LBRACE linst RBRACE'
     
-_lr_action_items = {'LPAREN':([0,3,5,6,],[3,3,3,3,]),'NUMBER':([0,3,5,6,],[4,4,4,4,]),'$end':([1,2,4,8,9,10,],[0,-1,-5,-2,-3,-4,]),'PLUS':([2,4,7,8,9,10,],[5,-5,5,-2,-3,-4,]),'TIMES':([2,4,7,8,9,10,],[6,-5,6,6,-3,-4,]),'RPAREN':([4,7,8,9,10,],[-5,10,-2,-3,-4,]),}
+_lr_action_items = {'FUNCTION':([0,2,11,18,19,20,47,59,60,62,63,64,65,66,68,74,75,],[4,4,-3,4,-2,4,4,4,4,4,4,4,4,4,4,4,4,]),'NAME':([0,2,4,11,14,15,16,17,18,19,20,24,33,34,35,36,37,38,39,40,41,46,47,59,60,62,63,64,65,66,68,74,75,],[5,5,12,-3,22,22,22,22,5,-2,5,22,22,22,22,22,22,22,22,22,22,22,5,5,5,5,5,5,5,5,5,5,5,]),'PRINT':([0,2,11,18,19,20,47,59,60,62,63,64,65,66,68,74,75,],[6,6,-3,6,-2,6,6,6,6,6,6,6,6,6,6,6,6,]),'IF':([0,2,11,18,19,20,47,59,60,62,63,64,65,66,68,74,75,],[7,7,-3,7,-2,7,7,7,7,7,7,7,7,7,7,7,7,]),'WHILE':([0,2,11,18,19,20,47,59,60,62,63,64,65,66,68,74,75,],[8,8,-3,8,-2,8,8,8,8,8,8,8,8,8,8,8,8,]),'FOR':([0,2,11,18,19,20,47,59,60,62,63,64,65,66,68,74,75,],[9,9,-3,9,-2,9,9,9,9,9,9,9,9,9,9,9,9,]),'$end':([1,2,11,19,],[0,-1,-3,-2,]),'COLON':([3,10,21,22,23,25,29,32,43,49,50,51,52,53,54,55,56,57,58,61,67,69,70,72,76,],[11,19,32,-20,-7,-19,46,-6,-8,-9,-10,-11,-12,-13,-14,-15,-16,-17,-18,66,-4,-21,-22,-5,-23,]),'LPAREN':([5,6,7,8,9,12,14,15,16,17,24,33,34,35,36,37,38,39,40,41,46,],[13,15,16,17,18,20,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,]),'EQUAL':([5,],[14,]),'RBRACE':([11,19,62,64,65,68,75,],[-3,-2,67,69,70,72,76,]),'RPAREN':([13,20,22,23,25,26,27,28,31,32,42,43,49,50,51,52,53,54,55,56,57,58,67,69,70,71,72,76,],[21,30,-20,-7,-19,43,44,45,48,-6,58,-8,-9,-10,-11,-12,-13,-14,-15,-16,-17,-18,-4,-21,-22,73,-5,-23,]),'NUMBER':([14,15,16,17,24,33,34,35,36,37,38,39,40,41,46,],[25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,]),'PLUS':([22,23,25,26,27,28,42,49,50,51,52,53,54,55,56,57,58,61,],[-20,33,-19,33,33,33,33,-9,-10,-11,33,33,33,33,33,-17,-18,33,]),'MINUS':([22,23,25,26,27,28,42,49,50,51,52,53,54,55,56,57,58,61,],[-20,34,-19,34,34,34,34,-9,-10,-11,34,34,34,34,34,-17,-18,34,]),'TIMES':([22,23,25,26,27,28,42,49,50,51,52,53,54,55,56,57,58,61,],[-20,35,-19,35,35,35,35,35,35,-11,35,35,35,35,35,-17,-18,35,]),'OR':([22,23,25,26,27,28,42,49,50,51,52,53,54,55,56,57,58,61,],[-20,36,-19,36,36,36,36,-9,-10,-11,-12,-13,36,-15,-16,-17,-18,36,]),'AND':([22,23,25,26,27,28,42,49,50,51,52,53,54,55,56,57,58,61,],[-20,37,-19,37,37,37,37,-9,-10,-11,37,-13,37,-15,-16,-17,-18,37,]),'EQUALS':([22,23,25,26,27,28,42,49,50,51,52,53,54,55,56,57,58,61,],[-20,38,-19,38,38,38,38,-9,-10,-11,-12,-13,38,-15,-16,-17,-18,38,]),'LOWER':([22,23,25,26,27,28,42,49,50,51,52,53,54,55,56,57,58,61,],[-20,39,-19,39,39,39,39,-9,-10,-11,39,39,39,None,None,-17,-18,39,]),'HIGHER':([22,23,25,26,27,28,42,49,50,51,52,53,54,55,56,57,58,61,],[-20,40,-19,40,40,40,40,-9,-10,-11,40,40,40,None,None,-17,-18,40,]),'DIVIDE':([22,23,25,26,27,28,42,49,50,51,52,53,54,55,56,57,58,61,],[-20,41,-19,41,41,41,41,41,41,-11,41,41,41,41,41,-17,-18,41,]),'LBRACE':([30,44,45,48,73,],[47,59,60,63,74,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'start':([0,],[1,]),'expression':([0,3,5,6,],[2,7,8,9,]),}
+_lr_goto_items = {'start':([0,],[1,]),'linst':([0,47,59,60,63,74,],[2,62,64,65,68,75,]),'inst':([0,2,18,20,47,59,60,62,63,64,65,66,68,74,75,],[3,10,29,31,3,3,3,10,3,10,10,71,10,3,10,]),'expression':([14,15,16,17,24,33,34,35,36,37,38,39,40,41,46,],[23,26,27,28,42,49,50,51,52,53,54,55,56,57,61,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -27,9 +27,27 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> start","S'",1,None,None,None),
-  ('start -> expression','start',1,'p_start','calcExprAvecASTavecEvalCorrection.py',48),
-  ('expression -> expression PLUS expression','expression',3,'p_expression_binop_plus','calcExprAvecASTavecEvalCorrection.py',55),
-  ('expression -> expression TIMES expression','expression',3,'p_expression_binop_times','calcExprAvecASTavecEvalCorrection.py',60),
-  ('expression -> LPAREN expression RPAREN','expression',3,'p_expression_group','calcExprAvecASTavecEvalCorrection.py',66),
-  ('expression -> NUMBER','expression',1,'p_expression_number','calcExprAvecASTavecEvalCorrection.py',70),
+  ('start -> linst','start',1,'p_start','calcExprAvecASCavecEvalCorrectiontmp.py',80),
+  ('linst -> linst inst COLON','linst',3,'p_line','calcExprAvecASCavecEvalCorrectiontmp.py',87),
+  ('linst -> inst COLON','linst',2,'p_line','calcExprAvecASCavecEvalCorrectiontmp.py',88),
+  ('inst -> FUNCTION NAME LPAREN RPAREN LBRACE linst RBRACE','inst',7,'p_expression_function','calcExprAvecASCavecEvalCorrectiontmp.py',99),
+  ('inst -> FUNCTION NAME LPAREN inst RPAREN LBRACE linst RBRACE','inst',8,'p_expression_function','calcExprAvecASCavecEvalCorrectiontmp.py',100),
+  ('inst -> NAME LPAREN RPAREN COLON','inst',4,'p_expression_function_call','calcExprAvecASCavecEvalCorrectiontmp.py',107),
+  ('inst -> NAME EQUAL expression','inst',3,'p_statement_assign','calcExprAvecASCavecEvalCorrectiontmp.py',113),
+  ('inst -> PRINT LPAREN expression RPAREN','inst',4,'p_statement_print','calcExprAvecASCavecEvalCorrectiontmp.py',120),
+  ('expression -> expression PLUS expression','expression',3,'p_expression_binop','calcExprAvecASCavecEvalCorrectiontmp.py',127),
+  ('expression -> expression MINUS expression','expression',3,'p_expression_binop','calcExprAvecASCavecEvalCorrectiontmp.py',128),
+  ('expression -> expression TIMES expression','expression',3,'p_expression_binop','calcExprAvecASCavecEvalCorrectiontmp.py',129),
+  ('expression -> expression OR expression','expression',3,'p_expression_binop','calcExprAvecASCavecEvalCorrectiontmp.py',130),
+  ('expression -> expression AND expression','expression',3,'p_expression_binop','calcExprAvecASCavecEvalCorrectiontmp.py',131),
+  ('expression -> expression EQUALS expression','expression',3,'p_expression_binop','calcExprAvecASCavecEvalCorrectiontmp.py',132),
+  ('expression -> expression LOWER expression','expression',3,'p_expression_binop','calcExprAvecASCavecEvalCorrectiontmp.py',133),
+  ('expression -> expression HIGHER expression','expression',3,'p_expression_binop','calcExprAvecASCavecEvalCorrectiontmp.py',134),
+  ('expression -> expression DIVIDE expression','expression',3,'p_expression_binop','calcExprAvecASCavecEvalCorrectiontmp.py',135),
+  ('expression -> LPAREN expression RPAREN','expression',3,'p_expression_group','calcExprAvecASCavecEvalCorrectiontmp.py',139),
+  ('expression -> NUMBER','expression',1,'p_expression_number','calcExprAvecASCavecEvalCorrectiontmp.py',143),
+  ('expression -> NAME','expression',1,'p_expression_name','calcExprAvecASCavecEvalCorrectiontmp.py',150),
+  ('inst -> IF LPAREN expression RPAREN LBRACE linst RBRACE','inst',7,'p_expression_if','calcExprAvecASCavecEvalCorrectiontmp.py',154),
+  ('inst -> WHILE LPAREN expression RPAREN LBRACE linst RBRACE','inst',7,'p_expression_while','calcExprAvecASCavecEvalCorrectiontmp.py',158),
+  ('inst -> FOR LPAREN inst COLON expression COLON inst RPAREN LBRACE linst RBRACE','inst',11,'p_expression_for','calcExprAvecASCavecEvalCorrectiontmp.py',162),
 ]
